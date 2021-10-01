@@ -60,6 +60,14 @@ public class Paciente {
         this.apellido = apellido;
     }
 
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
+
     public String getDni() {
         return dni;
     }

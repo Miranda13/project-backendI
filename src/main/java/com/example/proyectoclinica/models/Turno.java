@@ -3,6 +3,8 @@ package com.example.proyectoclinica.models;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "turnos")
 public class Turno {
     @Id
     @SequenceGenerator(name = "turno_sequence", sequenceName = "turno_sequence", allocationSize = 1)

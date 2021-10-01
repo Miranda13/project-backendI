@@ -3,7 +3,7 @@ package com.example.proyectoclinica.models;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "domicilios")
 public class Domicilio {
     @Id
     @SequenceGenerator(name = "domicilio_sequence", sequenceName = "domicilio_sequence", allocationSize = 1)

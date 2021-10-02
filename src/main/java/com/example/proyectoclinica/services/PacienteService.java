@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface PacienteService {
     List<Paciente> obtenerTodos();
     Optional<Paciente> obtenerUno(Integer id_paciente);
-    Paciente guardar(Paciente paciente);
+    Paciente crear(Paciente paciente);
     void eliminar(Integer id_paciente);
     Paciente actualizar(Paciente paciente);
 }

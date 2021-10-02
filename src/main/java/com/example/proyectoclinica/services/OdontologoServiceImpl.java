@@ -28,7 +28,7 @@ public class OdontologoServiceImpl implements OdontologoService {
     }
 
     @Override
-    public Odontologo guardar(Odontologo Odontologo) {
+    public Odontologo crear(Odontologo Odontologo) {
         return odontologoRepository.save(Odontologo);
     }
 

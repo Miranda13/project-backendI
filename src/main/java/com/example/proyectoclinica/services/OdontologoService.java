@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface OdontologoService {
     List<Odontologo> obtenerTodos();
     Optional<Odontologo> obtenerUno(Integer id_odontologo);
-    Odontologo guardar(Odontologo odontologo);
+    Odontologo crear(Odontologo odontologo);
     void eliminar(Integer id_odontologo);
     Odontologo actualizar(Odontologo odontologo);
 }

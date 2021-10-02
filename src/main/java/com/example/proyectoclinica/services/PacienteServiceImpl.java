@@ -30,8 +30,8 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
-    public Paciente guardar(Paciente paciente) {
-        paciente.setDomicilio(domicilioService.guardar(paciente.getDomicilio()));
+    public Paciente crear(Paciente paciente) {
+        paciente.setDomicilio(domicilioService.crear(paciente.getDomicilio()));
         return pacienteRepository.save(paciente);
 
     }

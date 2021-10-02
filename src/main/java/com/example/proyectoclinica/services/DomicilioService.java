@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface DomicilioService {
     List<Domicilio> obtenerTodos();
     Optional<Domicilio> obtenerUno(Integer id_domicilio);
-    Domicilio guardar(Domicilio domicilio);
+    Domicilio crear(Domicilio domicilio);
     void eliminar(Integer id_domicilio);
     Domicilio actualizar(Domicilio domicilio);
 }

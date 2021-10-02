@@ -37,7 +37,7 @@ public class TurnoServiceImpl implements TurnoService {
     }
 
     @Override
-    public Turno guardar(Turno turno) {
+    public Turno crear(Turno turno) {
         return turnoRepository.save(turno);
     }
 

@@ -28,7 +28,7 @@ public class DomicilioServiceImpl implements DomicilioService {
     }
 
     @Override
-    public Domicilio guardar(Domicilio domicilio) {
+    public Domicilio crear(Domicilio domicilio) {
         return domicilioRepository.save(domicilio);
     }
 

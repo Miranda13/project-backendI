@@ -1,7 +1,7 @@
 package com.example.proyectoclinica.models;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "turnos")
@@ -16,16 +16,16 @@ public class Turno {
     @ManyToOne
     @JoinColumn(name = "id_odontologo")
     private Odontologo odontologo;
-    private LocalDateTime fecha_turno;
+    private Date fecha_turno;
 
-    public Turno(Integer id_turno, Paciente paciente, Odontologo odontologo, LocalDateTime fecha_turno) {
+    public Turno(Integer id_turno, Paciente paciente, Odontologo odontologo, Date fecha_turno) {
         this.id_turno = id_turno;
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fecha_turno = fecha_turno;
     }
 
-    public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fecha_turno) {
+    public Turno(Paciente paciente, Odontologo odontologo, Date fecha_turno) {
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fecha_turno = fecha_turno;
@@ -58,11 +58,11 @@ public class Turno {
         this.odontologo = odontologo;
     }
 
-    public LocalDateTime getFecha_turno() {
+    public Date getFecha_turno() {
         return fecha_turno;
     }
 
-    public void setFecha_turno(LocalDateTime fecha_turno) {
+    public void setFecha_turno(Date fecha_turno) {
         this.fecha_turno = fecha_turno;
     }
 }

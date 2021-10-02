@@ -1,7 +1,7 @@
 package com.example.proyectoclinica.models;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "pacientes")
@@ -13,7 +13,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String dni;
-    private LocalDateTime fecha_alta;
+    private Date fecha_alta;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_domicilio")
     private  Domicilio domicilio;
@@ -21,19 +21,19 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, String apellido, String dni, LocalDateTime fecha_alta) {
+    public Paciente(String nombre, String apellido, String dni, Date date) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.fecha_alta = fecha_alta;
+        this.fecha_alta = date;
     }
 
-    public Paciente(Integer id_paciente, String nombre, String apellido, String dni, LocalDateTime fecha_alta) {
+    public Paciente(Integer id_paciente, String nombre, String apellido, String dni, Date date) {
         this.id_paciente = id_paciente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.fecha_alta = fecha_alta;
+        this.fecha_alta = date;
     }
 
     public Integer getId_paciente() {
@@ -76,11 +76,11 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public LocalDateTime getFecha_alta() {
+    public Date getFecha_alta() {
         return fecha_alta;
     }
 
-    public void setFecha_alta(LocalDateTime fecha_alta) {
+    public void setFecha_alta(Date fecha_alta) {
         this.fecha_alta = fecha_alta;
     }
 }

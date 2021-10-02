@@ -28,14 +28,12 @@ public class TurnoController {
     }
 
     @PostMapping
-    public ResponseEntity<Turno> crearTurno(@RequestBody Turno turno) {
-        ResponseEntity<Turno> response;
+    public ResponseEntity<Turno> crear(@RequestBody Turno turno) {
         if (pacienteService.obtenerUno(turno.getPaciente().getId_paciente()).isPresent() &&
                 odontologoService.obtenerUno(turno.getOdontologo().getId_odontologo()).isPresent())
-            response = ResponseEntity.ok(turnoService.guardar(turno));
+            return ResponseEntity.ok(turnoService.crear(turno));
         else
-            response = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        return response;
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @GetMapping
@@ -44,18 +42,19 @@ public class TurnoController {
     }
 
     @PutMapping
-    public ResponseEntity<Turno> actualizarTurno(@RequestBody Turno turno) {
-        return ResponseEntity.ok(turnoService.actualizar(turno));
+    public ResponseEntity<Turno> actualizar(@RequestBody Turno turno) {
+        if (turnoService.obtenerUno(turno.getPaciente().getId_paciente()).isPresent())
+            return ResponseEntity.ok(turnoService.actualizar(turno));
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @DeleteMapping("/{id_turno}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id_turno) {
-        ResponseEntity<String> response;
         if (turnoService.obtenerUno(id_turno).isPresent()) {
             turnoService.eliminar(id_turno);
-            response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Turno eliminado");
         } else
-            response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        return response;
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }
